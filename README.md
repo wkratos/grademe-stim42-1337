@@ -1,7 +1,6 @@
-# 9RA AND THEN CLONE IT  
-# 🧠 1337-Piscine-Exam-Leaks (KOLXI AYTBEDEL DONT WORRY 😂😂😂)
+# Grademe-stim
 
-> **⚠️ ALERT TO ALL POOLERS**  
+ **⚠️ ALERT TO ALL POOLERS**  
 > You're about to uncover the ultimate secret to pass the Piscine... or so you thought 🤭
 
 ---
@@ -36,7 +35,7 @@ LOL.
 ## 📚 Piscine Tips That Actually Work
 
 Instead of wasting your time here:
-- Rewrite `write ` hhhhhh for the 100th time.
+- Rewrite `write` for the 100th time.
 - Read the subject. Then read it again.
 - Break your code. Fix it. Break it again.
 - Sleep 4 hours. Survive on coffee and stress.
@@ -48,14 +47,13 @@ Instead of wasting your time here:
 ```c
 int main(void)
 {
-    write(1, "Piscine secret unlocked: just code. That’s it.
-", 47);
+    write(1, "Piscine secret unlocked: just code. That’s it.", 47);
     return (1337);
 }
 ```
 
 No magic. Just pain.  
-Welcome to 1337 💀💀💀💀💀💀💀💀.
+Welcome to 1337 💀.
 
 ---
 
@@ -64,4 +62,4 @@ Welcome to 1337 💀💀💀💀💀💀💀💀.
 To every pooler who thought this was the shortcut:  
 You’ve just been **Piscine-trolled**.  
 Bonne chance, baby shark 🦈  
-**Hhhhhhhhhhhhhhhh 🤣**
+lol
