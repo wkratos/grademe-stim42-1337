@@ -67,7 +67,7 @@ void exam::info(void)
         std::cout << "Mode: " << MAGENTA << "REAL" << RESET << " | ";
     else
         std::cout << "Mode: " << YELLOW << "TEST" << RESET << " (Your grade will not be counted)" << std::endl;
-    std::cout << "Current Grade: " << LIME << level_per_ex_save * level << RESET << " / 100" << std::endl;
+    std::cout << "Current Grade: " << LIME << current_score() << RESET << " / 100" << std::endl;
     // std::cout << "Assignments: " << std::endl;
     std::cout << std::endl;
 
@@ -115,7 +115,7 @@ void exam::infovip(void)
         std::cout << "You are running in " << MAGENTA << "REAL" << RESET << " mode (Your grade will be counted)" << std::endl;
     else
         std::cout << "You are running in " << YELLOW << "TEST" << RESET << " mode (Your grade will not be counted)" << std::endl;
-    std::cout << "Your current grade is " << LIME << level_per_ex_save * level << RESET << "/100" << std::endl;
+    std::cout << "Your current grade is " << LIME << current_score() << RESET << "/100" << std::endl;
     std::cout << "Assignments: " << std::endl;
 
     for (std::map<int, exercise>::iterator it = lvl_ex.begin(); it != lvl_ex.end(); it++)
@@ -213,7 +213,9 @@ int exam::stud_or_swim(void)
         if(vip)
             std::cout << "    You are a " << LIME << "VIP" << WHITE << BOLD << " user" << RESET << std::endl << std::endl;
         else
-            std::cout << "     Made by " << LIME << "jcluzet" << RESET << std::endl
+            std::cout << "     Original project by " << LIME << "@jcluzet" << RESET << std::endl
+                  << " Maintained, expanded, and improved by " << LIME << "@wkratos" << RESET << std::endl
+                  << "          github.com/wkratos" << RESET << std::endl
                   << std::endl
                   << std::endl;
         std::cout << LIME << BOLD << "            1" << RESET << std::endl;
@@ -380,6 +382,12 @@ int exam::piscine_menu(void)
         std::cout << std::endl
                   << LIME << "            2" << RESET << WHITE << BOLD << std::endl
                   << "       EXAM WEEK 02" << std::endl;
+        std::cout << std::endl
+                  << LIME << "            3" << RESET << WHITE << BOLD << std::endl
+                  << "       EXAM WEEK 03" << std::endl;
+        std::cout << std::endl
+                  << LIME << "            4" << RESET << WHITE << BOLD << std::endl
+                  << "       EXAM WEEK 04 (FINAL)" << std::endl;
         std::cout << RESET << BOLD << std::endl
                   << "     \\ ------------ /" << std::endl
                   << std::endl
@@ -394,7 +402,7 @@ int exam::piscine_menu(void)
                   << "            ";
         if (!std::getline(std::cin, choice))
             sigd();
-        if (choice != "1" && choice != "2" && choice != "0")
+        if (choice != "1" && choice != "2" && choice != "3" && choice != "4" && choice != "0")
             choice = "-1";
     }
     return (atoi(choice.c_str()));

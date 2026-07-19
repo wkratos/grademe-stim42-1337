@@ -49,12 +49,21 @@ void exam::exam_prompt(void)
         if (line == NULL)
             sigd();
         input = line;
+        if (input.empty())
+        {
+            free(line);
+            continue;
+        }
         while (input.back() == ' ')
             input.pop_back();
+        if (input.empty())
+        {
+            free(line);
+            continue;
+        }
         while (input.front() == ' ')
             input.erase(input.begin());
-        if (input.empty())
-            continue;
+        free(line);
         add_history(input.c_str());
         if ((input == "remove_grade_time" || input == "new_ex" || input == "force_success") && !setting_dcc)
             std::cout << " ❌ Cheat commands are currently disabled, use " << LIME << BOLD << "settings" << RESET << " command." << std::endl;
@@ -189,8 +198,9 @@ bool exam::start_new_ex(void)
     if (!backup)
     {
         list_ex_lvl = list_dir();
-        exercise ex = *randomize_exercise(list_ex_lvl, setting_dse);
+        exercise ex = randomize_exercise(list_ex_lvl, setting_dse);
         current_ex = new exercise(ex);
+        used_exercises.insert(current_ex->get_name());
         prepare_current_ex();
         store_data();
     }

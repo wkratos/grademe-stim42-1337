@@ -60,7 +60,7 @@ bool exam::prepare_current_ex(void)
 }
 
 // ==> Randomize exercise (give 1 into list)
-exercise *randomize_exercise(std::map<int, exercise> list, bool remove_success)
+exercise randomize_exercise(std::map<int, exercise> list, bool remove_success)
 {
     // if setting_dse is 1, remove all exercise in list having a name in .system/exam_token/success_ex 
     if (remove_success == 0)
@@ -110,7 +110,7 @@ exercise *randomize_exercise(std::map<int, exercise> list, bool remove_success)
     int random = rand() % list.size();
     for (int i = 0; i < random; i++)
         it++;
-    return (&it->second);
+    return (it->second);
 }
 
 exercise::exercise(int level, std::string ex_name) {

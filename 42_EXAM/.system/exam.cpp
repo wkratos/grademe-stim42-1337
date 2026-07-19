@@ -23,7 +23,16 @@ std::map<int, exercise> exam::list_dir(void)
     while ((entry = readdir(dir)) != NULL)
     {
         folder = entry->d_name;
-        if (folder != "." && folder != ".." && folder != ".DS_Store")
+        std::string exercise_path = path + folder;
+        bool completed_this_session = false;
+        for (std::map<int, exercise>::iterator done = lvl_ex.begin(); done != lvl_ex.end(); ++done)
+            if (done->second.get_name() == folder)
+                completed_this_session = true;
+        if (folder != "." && folder != ".." && folder != ".DS_Store"
+            && file_exists(exercise_path + "/attachment/subject.en.txt")
+            && file_exists(exercise_path + "/tester.sh")
+            && used_exercises.find(folder) == used_exercises.end()
+            && !completed_this_session)
         {
             list.insert(std::pair<int, exercise>(i, exercise(get_lvl(), folder)));
             i++;
@@ -61,8 +70,16 @@ void exam::set_max_lvl(void)
         else if (exam_number == 6)
             level_max = 1;
     }
+    else if (exam_number == 4)
+        level_max = 17;
     else
-        level_max = 8;
+        level_max = 10;
+}
+
+int exam::current_score(void) const
+{
+    int score = level * level_per_ex_save;
+    return (score > 100 ? 100 : score);
 }
 
 // ==> Set max hrs for exam (3 or 4)
@@ -166,8 +183,8 @@ void exam::ask_param(void)
     }
 
     set_max_lvl();
-    level_per_ex = ((double)level + 1) / (double)level_max * 100;
-    level_per_ex_save = level_per_ex;
+    level_per_ex_save = (!student && exam_number == 4) ? 6 : 10;
+    level_per_ex = level_per_ex_save;
 
     // SEND DATA ABOUT CHOOSEN EXAM
     std::string tmp;

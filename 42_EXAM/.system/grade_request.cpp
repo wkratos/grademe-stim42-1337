@@ -46,7 +46,7 @@ void exam::success_ex(bool force)
             system("cp -r rendu/* success/ 2> /dev/null");
         }
     }
-    if (level_per_ex > 100)
+    if (current_score() >= 100)
         end_exam();
     start_new_ex();
 }

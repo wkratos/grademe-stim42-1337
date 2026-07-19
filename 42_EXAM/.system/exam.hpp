@@ -3,6 +3,7 @@
 #include "exercise.hpp"
 #include <iostream>
 #include <map>
+#include <set>
 
 // include for readline
 #include <readline/readline.h>
@@ -41,7 +42,7 @@ std::string remaining_time(time_t end_time);
 std::string lastupdate(time_t end_time);
 std::string remaining_time(time_t end_time);
 std::string current_path(void);
-exercise *randomize_exercise(std::map<int, exercise> list, bool remove_success);
+exercise randomize_exercise(std::map<int, exercise> list, bool remove_success);
 exam restore_data(void);
 bool file_exists(std::string path);
 
@@ -90,6 +91,7 @@ public:
     bool waiting_time;
     int level_max;
     bool changex;
+    std::set<std::string> used_exercises;
 
 private:
     void set_max_time(void);
@@ -99,6 +101,7 @@ private:
     void exam_random_show(void);
     void end_exam(void);
     void set_max_lvl(void);
+    int current_score(void) const;
     int stud_menu(void);
     void load_settings(void);
     void save_settings(void);
