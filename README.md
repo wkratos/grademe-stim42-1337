@@ -1,4 +1,14 @@
-# Grademe-stim
+<div align="center">
+
+# 42examshell
+
+---
+
+**IMPORTANT: Open The 42_Exam folder and read its README**
+
+</div>
+
+---
 
  **⚠️ ALERT TO ALL POOLERS**  
 > You're about to uncover the ultimate secret to pass the Piscine... or so you thought 🤭
